@@ -1,8 +1,5 @@
 package org.acme.resources;
 
-import graphql.schema.DataFetchingEnvironment;
-import graphql.schema.GraphQLEnumType;
-import graphql.schema.GraphQLSchema;
 import io.smallrye.graphql.api.Context;
 import io.smallrye.graphql.api.Subscription;
 import io.smallrye.mutiny.Multi;
@@ -12,7 +9,6 @@ import org.acme.entity.Hero;
 import org.acme.service.GalaxyService;
 import org.eclipse.microprofile.graphql.*;
 
-import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import java.util.List;
 
@@ -74,19 +70,19 @@ public class FilmResource {
 
     // DataFetching
 
-    DataFetchingEnvironment dfe = context.unwrap(DataFetchingEnvironment.class);
+//    DataFetchingEnvironment dfe = context.unwrap(DataFetchingEnvironment.class);
 
     // Adding own features
 
-    public GraphQLSchema.Builder addMyOwnEnum(@Observes GraphQLSchema.Builder builder) {
-
-        //Adding your own features directly. Example Emun
-        GraphQLEnumType myOwnEnum = GraphQLEnumType.newEnum()
-                                                    .name("MyNewEnum")
-                                                    .description("A new own Enum")
-                                                    .value("Value 1")
-                                                    .value("Value 2").build();
-
-        return builder.additionalType(myOwnEnum);
-    }
+//    public GraphQLSchema.Builder addMyOwnEnum(@Observes GraphQLSchema.Builder builder) {
+//
+//        //Adding your own features directly. Example Emun
+//        GraphQLEnumType myOwnEnum = GraphQLEnumType.newEnum()
+//                                                    .name("MyNewEnum")
+//                                                    .description("A new own Enum")
+//                                                    .value("Value 1")
+//                                                    .value("Value 2").build();
+//
+//        return builder.additionalType(myOwnEnum);
+//    }
 }
